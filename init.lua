@@ -88,12 +88,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
--- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
-
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
@@ -224,13 +218,13 @@ require('lazy').setup({
 
       -- Document existing key chains
       spec = {
-        { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
-        { '<leader>d', group = '[D]ocument' },
-        { '<leader>r', group = '[R]ename' },
-        { '<leader>s', group = '[S]earch' },
-        { '<leader>w', group = '[W]orkspace' },
-        { '<leader>t', group = '[T]oggle' },
-        { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>c', group = '[C]ode', icon = '', mode = { 'n', 'x' } },
+        { '<leader>d', group = '[D]ocument', icon = '󰈙' },
+        { '<leader>g', group = '[G]it', icon = '󰊢' },
+        { '<leader>r', group = '[R]ename', icon = '󰑕' },
+        { '<leader>s', group = '[S]earch', icon = '' },
+        { '<leader>w', group = '[W]orkspace', icon = '󰯉' },
+        { '<leader>t', group = '[T]oggle', icon = '' },
       },
     },
   },
