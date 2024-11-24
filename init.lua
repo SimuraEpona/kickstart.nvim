@@ -38,6 +38,11 @@ vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.autoindent = true
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -563,6 +568,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         eruby = { 'erb_format' },
+        astro = { 'prettier' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -692,7 +698,6 @@ require('lazy').setup({
 
   { 'tpope/vim-bundler', ft = { 'ruby', 'eruby' } },
   { 'tpope/vim-endwise', ft = { 'ruby', 'eruby' } },
-  { 'tpope/vim-sleuth' }, -- Detect tabstop and shiftwidth automatically
 
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
