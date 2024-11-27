@@ -43,6 +43,12 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 
+vim.filetype.add {
+  extension = {
+    mdx = 'markdown.mdx',
+  },
+}
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
