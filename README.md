@@ -1,4 +1,6 @@
-# kickstart.nvim
+# kickstart.nvim(not anymore....)
+
+the following install step still works..
 
 ## Introduction
 
