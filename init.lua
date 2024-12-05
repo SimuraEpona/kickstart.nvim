@@ -702,6 +702,12 @@ require('lazy').setup({
     end,
   },
 
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+    opts = {},
+  },
+
   { 'tpope/vim-bundler', ft = { 'ruby', 'eruby' } },
   { 'tpope/vim-endwise', ft = { 'ruby', 'eruby' } },
 
