@@ -1,6 +1,9 @@
 return {
   'nvim-treesitter/nvim-treesitter',
   main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+  dependencies = {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+  },
   -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
   build = ':TSUpdate',
   opts = {

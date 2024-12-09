@@ -22,6 +22,11 @@ require('lazy').setup {
   rocks = {
     enabled = false,
   },
+  dev = {
+    path = '~/Developer',
+    patterns = {},
+    fallback = false,
+  },
   checker = {
     notify = false,
   },
