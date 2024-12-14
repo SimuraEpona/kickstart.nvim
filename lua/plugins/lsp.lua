@@ -87,6 +87,13 @@ return { -- LSP Configuration
           })
         end
 
+        if client and client.server_capabilities.codeLensProvider then
+          vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'InsertLeave' }, {
+            buffer = event.buf,
+            callback = vim.lsp.codelens.refresh,
+          })
+        end
+
         -- The following autocommand is used to enable inlay hints in your
         -- code, if the language server you are using supports them
         --
@@ -128,6 +135,28 @@ return { -- LSP Configuration
       -- But for many setups, the LSP (`tsserver`) will work just fine
       -- tsserver = {},
       --
+
+      ruby_lsp = {
+        on_attach = function(client, bufnr)
+          vim.keymap.set('n', '<leader>cl', vim.lsp.codelens.run, { noremap = true, silent = true })
+
+          client.commands = client.commands or {}
+
+          client.commands['rubyLsp.openFile'] = function(command)
+            local file_path = command.arguments[1][1]
+
+            local path, line = string.match(file_path, '(.+)#L(%d+)')
+            path = path or file_path -- if no line number, use the whole path
+
+            path = string.gsub(path, 'file://', '')
+            vim.cmd('edit ' .. path)
+
+            if line then
+              vim.cmd(line)
+            end
+          end
+        end,
+      },
 
       emmet_language_server = {
         filetypes = { 'css', 'eruby', 'html', 'javascript', 'javascriptreact', 'less', 'sass', 'scss', 'pug', 'typescriptreact', 'elixir', 'heex' },
@@ -174,6 +203,8 @@ return { -- LSP Configuration
           -- by the server configuration above. Useful when disabling
           -- certain features of an LSP (for example, turning off formatting for tsserver)
           server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+
+          server.on_attach = server.on_attach or function(client, bufnr) end
           require('lspconfig')[server_name].setup(server)
         end,
       },
