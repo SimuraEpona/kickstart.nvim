@@ -1,12 +1,6 @@
 vim.g.mapleader = ' '
 vim.g.have_nerd_font = true
 
-vim.filetype.add {
-  extension = {
-    mdx = 'markdown.mdx',
-  },
-}
-
 require 'core.keymaps'
 require 'core.autocmds'
 
