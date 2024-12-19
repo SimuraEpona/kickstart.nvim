@@ -43,12 +43,26 @@ return {
     },
 
     sources = {
-      default = { 'snippets', 'lsp', 'path', 'buffer' },
-      -- optionally disable cmdline completions
-      -- cmdline = {},
+      transform_items = function(ctx, items)
+        return vim.tbl_filter(function(item)
+          return item.kind ~= vim.lsp.protocol.CompletionItemKind.Text
+        end, items)
+      end,
+      completion = {
+        enabled_providers = { 'lsp', 'path', 'snippets' },
+      },
+      providers = {
+        snippets = {
+          opts = {
+            -- Disable the "all" snippets which gives useless stuff like the 'date' snippet
+            global_snippets = {},
+          },
+        },
+      },
     },
 
     -- experimental signature help support
     signature = { enabled = true },
+    completion = { accept = { auto_brackets = { enabled = true } } },
   },
 }
