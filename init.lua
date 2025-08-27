@@ -372,6 +372,12 @@ require('lazy').setup({
           end,
         },
       }
+
+      require('lspconfig').ts_ls.setup {
+        root_dir = require('lspconfig').util.root_pattern('package.json', 'jsconfig.json', '.git', 'Gemfile'),
+        filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+        capabilities = capabilities,
+      }
     end,
   },
 
