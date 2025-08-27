@@ -4,6 +4,11 @@ vim.o.number = true
 vim.o.mouse = 'a'
 vim.o.showmode = false
 
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+vim.o.softtabstop = 2
+
 vim.schedule(function()
   vim.o.clipboard = 'unnamedplus'
 end)

@@ -26,6 +26,8 @@ return { -- Autoformat
       end
     end,
     formatters_by_ft = {
+      javascript = { 'biome' },
+      typescript = { 'biome' },
       lua = { 'stylua' },
       eruby = { 'erb_format' },
     },
