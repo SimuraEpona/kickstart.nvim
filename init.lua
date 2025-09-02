@@ -392,6 +392,9 @@ require('lazy').setup({
   ui = {
     icons = {},
   },
+  change_detection = {
+    notify = false,
+  },
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`

@@ -4,4 +4,7 @@ return {
   config = function()
     require('railsway').setup()
   end,
+  dependencies = {
+    'folke/snacks.nvim',
+  },
 }
