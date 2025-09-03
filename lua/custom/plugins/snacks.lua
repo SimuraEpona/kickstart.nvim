@@ -26,5 +26,12 @@ return {
       end,
       desc = 'Lazygit',
     },
+    {
+      '<leader>tt',
+      function()
+        Snacks.terminal.toggle()
+      end,
+      desc = 'Terminal',
+    },
   },
 }
