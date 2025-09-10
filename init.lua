@@ -155,7 +155,21 @@ require('lazy').setup({
       { 'mason-org/mason.nvim', opts = {} },
       'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-      'saghen/blink.cmp',
+      {
+        'saghen/blink.cmp',
+        opts = {
+          sources = {
+            default = { 'lsp', 'path', 'snippets', 'buffer' },
+            per_filetype = {
+              sql = { 'snippets', 'dadbod', 'buffer' },
+            },
+            -- add vim-dadbod-completion to your completion providers
+            providers = {
+              dadbod = { name = 'Dadbod', module = 'vim_dadbod_completion.blink' },
+            },
+          },
+        },
+      },
     },
     config = function()
       vim.api.nvim_create_autocmd('LspAttach', {
