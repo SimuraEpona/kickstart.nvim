@@ -1,6 +1,7 @@
 --  For more options, you can see `:help option-list`
 vim.o.swapfile = false
 vim.o.number = true
+vim.o.relativenumber = true
 vim.o.mouse = 'a'
 vim.o.showmode = false
 
