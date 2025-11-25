@@ -11,6 +11,9 @@ return {
     notifier = {
       enabled = true,
     },
+    indent = {
+      enabled = true,
+    },
     picker = {
       enabled = true,
       ui_select = true,
