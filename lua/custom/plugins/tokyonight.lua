@@ -1,14 +1,12 @@
-return {
-  'folke/tokyonight.nvim',
-  priority = 1000, -- Make sure to load this before all the other start plugins.
-  config = function()
-    ---@diagnostic disable-next-line: missing-fields
-    require('tokyonight').setup {
-      styles = {
-        comments = { italic = false }, -- Disable italics in comments
-      },
-    }
+-- [[ Colorscheme ]]
+vim.pack.add { 'https://github.com/folke/tokyonight.nvim' }
 
-    vim.cmd.colorscheme 'tokyonight-night'
-  end,
+---@diagnostic disable-next-line: missing-fields
+require('tokyonight').setup {
+  styles = {
+    comments = { italic = false }, -- Disable italics in comments
+  },
 }
+
+-- Default colorscheme; auto-dark-mode may switch the variant based on the OS theme.
+vim.cmd.colorscheme 'tokyonight-night'

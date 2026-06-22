@@ -1,17 +1,9 @@
-return {
-  'kristijanhusak/vim-dadbod-ui',
-  dependencies = {
-    { 'tpope/vim-dadbod', lazy = true },
-    { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true }, -- Optional
-  },
-  cmd = {
-    'DBUI',
-    'DBUIToggle',
-    'DBUIAddConnection',
-    'DBUIFindBuffer',
-  },
-  init = function()
-    -- Your DBUI configuration
-    vim.g.db_ui_use_nerd_fonts = 1
-  end,
+-- Database UI + completion (loaded before blink.cmp so the `dadbod` source exists).
+vim.pack.add {
+  'https://github.com/tpope/vim-dadbod',
+  'https://github.com/kristijanhusak/vim-dadbod-completion',
+  'https://github.com/kristijanhusak/vim-dadbod-ui',
 }
+
+-- DBUI configuration
+vim.g.db_ui_use_nerd_fonts = 1

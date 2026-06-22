@@ -1,5 +1,29 @@
--- You can add your own plugins here or in other files in this directory!
---  I promise not to create any merge conflicts in this directory :)
+-- Loads every plugin module in dependency order.
 --
--- See the kickstart.nvim README for more information
-return {}
+-- vim.pack has no lazy-loading or dependency resolution, so order matters:
+--  - colorscheme + mini.icons first (icons used by other UIs)
+--  - treesitter before mdx (mdx needs treesitter parsers)
+--  - lazydev + dadbod before blink (they provide blink completion sources)
+local modules = {
+  'tokyonight', -- colorscheme
+  'mini', -- icons / textobjects / surround / statusline
+  'snacks', -- picker, lazygit, terminal, notifier
+  'treesitter',
+  'mdx',
+  'lazydev',
+  'dadbod',
+  'blink',
+  'lsp',
+  'conform',
+  'oil',
+  'guess-indent',
+  'git-signs',
+  'which-key',
+  'todo-comments',
+  'autopairs',
+  'auto-dark-mode',
+}
+
+for _, name in ipairs(modules) do
+  require('custom.plugins.' .. name)
+end

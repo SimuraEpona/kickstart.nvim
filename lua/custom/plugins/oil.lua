@@ -1,12 +1,10 @@
-return {
-  'stevearc/oil.nvim',
-  config = function()
-    require('oil').setup()
+-- File explorer that edits the filesystem like a buffer.
+vim.pack.add { 'https://github.com/stevearc/oil.nvim' }
 
-    -- Open parent directory in current window
-    vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+require('oil').setup()
 
-    -- Open parent directory in floating window
-    vim.keymap.set('n', '<space>-', require('oil').toggle_float)
-  end,
-}
+-- Open parent directory in current window
+vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+
+-- Open parent directory in floating window
+vim.keymap.set('n', '<space>-', require('oil').toggle_float)
