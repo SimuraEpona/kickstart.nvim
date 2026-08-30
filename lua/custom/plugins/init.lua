@@ -5,7 +5,7 @@
 --  - treesitter before mdx (mdx needs treesitter parsers)
 --  - lazydev + dadbod before blink (they provide blink completion sources)
 local modules = {
-  'tokyonight', -- colorscheme
+  'matteblack', -- colorscheme
   'mini', -- icons / textobjects / surround / statusline
   'snacks', -- picker, lazygit, terminal, notifier
   'treesitter',
@@ -21,7 +21,6 @@ local modules = {
   'which-key',
   'todo-comments',
   'autopairs',
-  'auto-dark-mode',
 }
 
 for _, name in ipairs(modules) do
